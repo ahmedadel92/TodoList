@@ -33,9 +33,13 @@ class TaskCell: UITableViewCell {
 
     @IBAction func completeTaskButtonTapped(_ sender: UIButton) {
         guard let _ = task else { return }
+        // Toggle task status
         task!.isCompleted.toggle()
+        // Change icon of the button
         completeTaskButton.setImage(UIImage(systemName: task!.isCompleted ? "checkmark.circle.fill" : "circle"), for: .normal)
+        // Change button's tint color
         completeTaskButton.tintColor = UIColor.systemBlue.withAlphaComponent(task!.isCompleted ? 0.25 : 1)
+        // Change label's text color
         titleLabel.textColor = UIColor.label.withAlphaComponent(task!.isCompleted ? 0.25 : 1)
     }
 }
