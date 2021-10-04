@@ -11,7 +11,7 @@ class TodoListController: UITableViewController {
     
     let cellId = "taskCell"
     
-    var tasks = [String]()
+    var tasks = [Task]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class TodoListController: UITableViewController {
     
     private func addNewTask(withName name: String) {
         // Add task to the array
-        self.tasks.append(name)
+        self.tasks.append(Task(title: name))
         
         // Insert the task in tableView
         tableView.insertRows(at: [IndexPath(row: tasks.count - 1, section: 0)], with: .automatic)
@@ -77,7 +77,7 @@ extension TodoListController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         // Set task name to be displayed
-        cell.textLabel?.text = tasks[indexPath.item]
+        cell.textLabel?.text = tasks[indexPath.item].title
         
         // Return the cell
         return cell
