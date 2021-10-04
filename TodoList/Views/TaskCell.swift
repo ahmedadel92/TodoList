@@ -35,5 +35,7 @@ class TaskCell: UITableViewCell {
         guard let _ = task else { return }
         task!.isCompleted.toggle()
         completeTaskButton.setImage(UIImage(systemName: task!.isCompleted ? "checkmark.circle.fill" : "circle"), for: .normal)
+        completeTaskButton.tintColor = UIColor.systemBlue.withAlphaComponent(task!.isCompleted ? 0.25 : 1)
+        titleLabel.textColor = UIColor.label.withAlphaComponent(task!.isCompleted ? 0.25 : 1)
     }
 }
