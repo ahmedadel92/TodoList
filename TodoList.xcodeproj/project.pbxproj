@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E20091E8270AF4B60053DF6E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20091E7270AF4B60053DF6E /* Task.swift */; };
+		E20091EB270AF76C0053DF6E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20091EA270AF76C0053DF6E /* TaskCell.swift */; };
 		E21181C0270ADE7F00980502 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21181BF270ADE7F00980502 /* AppDelegate.swift */; };
 		E21181C2270ADE7F00980502 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21181C1270ADE7F00980502 /* SceneDelegate.swift */; };
 		E21181C4270ADE7F00980502 /* TodoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21181C3270ADE7F00980502 /* TodoListController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		E20091E7270AF4B60053DF6E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		E20091EA270AF76C0053DF6E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		E21181BC270ADE7F00980502 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21181BF270ADE7F00980502 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E21181C1270ADE7F00980502 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		E20091E9270AF74B0053DF6E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E20091EA270AF76C0053DF6E /* TaskCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E21181B3270ADE7F00980502 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 			children = (
 				E20091E6270AF4A20053DF6E /* Controllers */,
 				E20091E5270AF4900053DF6E /* Models */,
+				E20091E9270AF74B0053DF6E /* Views */,
 				E21181BF270ADE7F00980502 /* AppDelegate.swift */,
 				E21181C1270ADE7F00980502 /* SceneDelegate.swift */,
 				E21181C5270ADE7F00980502 /* Main.storyboard */,
@@ -164,6 +175,7 @@
 				E21181C4270ADE7F00980502 /* TodoListController.swift in Sources */,
 				E21181C0270ADE7F00980502 /* AppDelegate.swift in Sources */,
 				E21181C2270ADE7F00980502 /* SceneDelegate.swift in Sources */,
+				E20091EB270AF76C0053DF6E /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

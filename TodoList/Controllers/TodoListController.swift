@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodoListController: UITableViewController {
+class TodoListController: UITableViewController, TaskCellDelegate {
     
     let cellId = "taskCell"
     
@@ -74,12 +74,24 @@ extension TodoListController {
     // Return the table view cell with task name displayed
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Get reusable cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! TaskCell
         
         // Set task name to be displayed
-        cell.textLabel?.text = tasks[indexPath.item].title
+        cell.task = tasks[indexPath.item]
+        
+        // Set the delegate
+        cell.delegate = self
         
         // Return the cell
         return cell
+    }
+    
+    // Implementing task cell delegate function
+    func updateTask(task: Task) {
+        // Getting the index of the updated task
+        if let index = tasks.firstIndex(where: { $0.id == task.id }) {
+            // Updating the task in tasks array
+            tasks[index] = task
+        }
     }
 }
