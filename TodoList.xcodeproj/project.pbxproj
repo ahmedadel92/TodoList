@@ -15,7 +15,7 @@
 		E21181C7270ADE7F00980502 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21181C5270ADE7F00980502 /* Main.storyboard */; };
 		E21181C9270ADE8300980502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21181C8270ADE8300980502 /* Assets.xcassets */; };
 		E21181CC270ADE8300980502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21181CA270ADE8300980502 /* LaunchScreen.storyboard */; };
-		E21181D4270AE0CD00980502 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = E21181D3270AE0CD00980502 /* Readme.md */; };
+		E21181D4270AE0CD00980502 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E21181D3270AE0CD00980502 /* README.md */; };
 		E28E64F2270B36CC00847E1C /* TaskFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28E64F1270B36CC00847E1C /* TaskFilter.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		E21181C8270ADE8300980502 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21181CB270ADE8300980502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21181CD270ADE8300980502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E21181D3270AE0CD00980502 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		E21181D3270AE0CD00980502 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E28E64F1270B36CC00847E1C /* TaskFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +98,7 @@
 				E21181C8270ADE8300980502 /* Assets.xcassets */,
 				E21181CA270ADE8300980502 /* LaunchScreen.storyboard */,
 				E21181CD270ADE8300980502 /* Info.plist */,
-				E21181D3270AE0CD00980502 /* Readme.md */,
+				E21181D3270AE0CD00980502 /* README.md */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 			files = (
 				E21181CC270ADE8300980502 /* LaunchScreen.storyboard in Resources */,
 				E21181C9270ADE8300980502 /* Assets.xcassets in Resources */,
-				E21181D4270AE0CD00980502 /* Readme.md in Resources */,
+				E21181D4270AE0CD00980502 /* README.md in Resources */,
 				E21181C7270ADE7F00980502 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
