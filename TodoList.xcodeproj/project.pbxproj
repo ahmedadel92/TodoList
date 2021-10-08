@@ -74,6 +74,7 @@
 			children = (
 				E21181BE270ADE7F00980502 /* TodoList */,
 				E21181BD270ADE7F00980502 /* Products */,
+				E21181D3270AE0CD00980502 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,7 +99,6 @@
 				E21181C8270ADE8300980502 /* Assets.xcassets */,
 				E21181CA270ADE8300980502 /* LaunchScreen.storyboard */,
 				E21181CD270ADE8300980502 /* Info.plist */,
-				E21181D3270AE0CD00980502 /* README.md */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
