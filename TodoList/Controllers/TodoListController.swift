@@ -12,7 +12,7 @@ class TodoListController: UITableViewController, TaskCellDelegate {
     let cellId = "taskCell"
     
     var tasks: [Task] = [
-        Task(title: "Take a shawer"),
+        Task(title: "Take a shower"),
         Task(title: "Make a cup of coffe"),
         Task(title: "Have a breakfast"),
         Task(title: "Read 3 pages from superfans book"),
