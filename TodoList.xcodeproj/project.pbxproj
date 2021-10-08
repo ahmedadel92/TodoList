@@ -16,6 +16,7 @@
 		E21181C9270ADE8300980502 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21181C8270ADE8300980502 /* Assets.xcassets */; };
 		E21181CC270ADE8300980502 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21181CA270ADE8300980502 /* LaunchScreen.storyboard */; };
 		E21181D4270AE0CD00980502 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = E21181D3270AE0CD00980502 /* Readme.md */; };
+		E28E64F2270B36CC00847E1C /* TaskFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28E64F1270B36CC00847E1C /* TaskFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E21181CB270ADE8300980502 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21181CD270ADE8300980502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21181D3270AE0CD00980502 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		E28E64F1270B36CC00847E1C /* TaskFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		E21181BE270ADE7F00980502 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				E28E64F0270B36AB00847E1C /* Enums */,
 				E20091E6270AF4A20053DF6E /* Controllers */,
 				E20091E5270AF4900053DF6E /* Models */,
 				E20091E9270AF74B0053DF6E /* Views */,
@@ -98,6 +101,14 @@
 				E21181D3270AE0CD00980502 /* Readme.md */,
 			);
 			path = TodoList;
+			sourceTree = "<group>";
+		};
+		E28E64F0270B36AB00847E1C /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E28E64F1270B36CC00847E1C /* TaskFilter.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				E21181C4270ADE7F00980502 /* TodoListController.swift in Sources */,
 				E21181C0270ADE7F00980502 /* AppDelegate.swift in Sources */,
 				E21181C2270ADE7F00980502 /* SceneDelegate.swift in Sources */,
+				E28E64F2270B36CC00847E1C /* TaskFilter.swift in Sources */,
 				E20091EB270AF76C0053DF6E /* TaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

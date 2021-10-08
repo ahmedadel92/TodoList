@@ -11,7 +11,15 @@ class TodoListController: UITableViewController, TaskCellDelegate {
     
     let cellId = "taskCell"
     
-    var tasks = [Task]()
+    var tasks: [Task] = [
+        Task(title: "Take a shawer"),
+        Task(title: "Make a cup of coffe"),
+        Task(title: "Have a breakfast"),
+        Task(title: "Read 3 pages from superfans book"),
+        Task(title: "Clean the room")
+    ]
+    var filteredTasks = [Task]()
+    var appliedFilter: TaskFilter = .uncompleted
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +28,25 @@ class TodoListController: UITableViewController, TaskCellDelegate {
         title = "Todo"
         
         // Setting add task button in navigation ber, and call addTaskButtonClicked when tapped
-        let addTaskButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTaskButtonClicked))
-        navigationItem.rightBarButtonItem = addTaskButton
+        let addTaskButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTaskButtonTapped))
+        let filterTasksButton = UIBarButtonItem(image: UIImage(systemName: "viewfinder.circle"), style: .plain, target: self, action: #selector(filterTasksButtonTapped))
+        navigationItem.rightBarButtonItems = [addTaskButton, filterTasksButton]
         
         // Setting footer view to empty view to hide extra cell separators
         tableView.tableFooterView = UIView()
+        
+        // Add tasks to filtered tasks
+        switch appliedFilter {
+        case .completed:
+            filteredTasks = tasks.filter({ $0.isCompleted })
+        case .uncompleted:
+            filteredTasks = tasks.filter({ !$0.isCompleted })
+        default:
+            filteredTasks = tasks
+        }
     }
         
-    @objc private func addTaskButtonClicked() {
+    @objc private func addTaskButtonTapped() {
         // Create alert controller
         let alert = UIAlertController(title: "New task", message: nil, preferredStyle: .alert)
         
@@ -40,7 +59,7 @@ class TodoListController: UITableViewController, TaskCellDelegate {
         alert.addAction(UIAlertAction(title: "Create", style: .default, handler: { [weak self] action in
             // Create the task
             
-            if let textFields = alert.textFields, let taskName = textFields[0].text {
+            if let textFields = alert.textFields, let taskName = textFields[0].text, !taskName.isEmpty {
                 self?.addNewTask(withName: taskName)
             }
         }))
@@ -52,11 +71,50 @@ class TodoListController: UITableViewController, TaskCellDelegate {
     }
     
     private func addNewTask(withName name: String) {
-        // Add task to the array
-        self.tasks.append(Task(title: name))
         
-        // Insert the task in tableView
-        tableView.insertRows(at: [IndexPath(row: tasks.count - 1, section: 0)], with: .automatic)
+        // Create the new task
+        let task = Task(title: name)
+        
+        // Add task to the array
+        self.tasks.append(task)
+        
+        // If incomplete tasks should be shown, add the task to filteredTasks
+        if appliedFilter != .completed {
+            self.filteredTasks.append(task)
+            // Insert the task in tableView
+            tableView.insertRows(at: [IndexPath(row: tasks.count - 1, section: 0)], with: .automatic)
+        }
+    }
+    
+    @objc private func filterTasksButtonTapped() {
+        let sheet = UIAlertController(title: "Filter by status", message: nil, preferredStyle: .actionSheet)
+        sheet.addAction(UIAlertAction(title: "All", style: .default, handler: { [weak self] _ in
+            self?.filterTasks(filter: .all)
+        }))
+        sheet.addAction(UIAlertAction(title: "Not completed", style: .default, handler: { [weak self] _ in
+            self?.filterTasks(filter: .uncompleted)
+        }))
+        sheet.addAction(UIAlertAction(title: "Completed", style: .default, handler: { [weak self] _ in
+            self?.filterTasks(filter: .completed)
+        }))
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    private func filterTasks(filter: TaskFilter) {
+        appliedFilter = filter
+        
+        switch filter {
+        case .completed:
+            filteredTasks = tasks.filter({ $0.isCompleted })
+        case .uncompleted:
+            filteredTasks = tasks.filter({ !$0.isCompleted })
+        default:
+            filteredTasks = tasks
+        }
+        
+        tableView.reloadData()
     }
 }
 
@@ -68,7 +126,7 @@ extension TodoListController {
     
     // Return the number of cells that the table view should show
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return filteredTasks.count
     }
     
     // Return the table view cell with task name displayed
@@ -77,7 +135,7 @@ extension TodoListController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! TaskCell
         
         // Set task name to be displayed
-        cell.task = tasks[indexPath.item]
+        cell.task = filteredTasks[indexPath.item]
         
         // Set the delegate
         cell.delegate = self
@@ -88,6 +146,18 @@ extension TodoListController {
     
     // Implementing task cell delegate function
     func updateTask(task: Task) {
+        // Getting the index of the updated task
+        if let index = filteredTasks.firstIndex(where: { $0.id == task.id }) {
+            // Remove the task from table view if it does not match the filter
+            if appliedFilter == .uncompleted && task.isCompleted || appliedFilter == .completed && !task.isCompleted {
+                filteredTasks.remove(at: index)
+                self.tableView.deleteRows(at: [IndexPath(item: index, section: 0)], with: .automatic)
+            } else {
+                // Updating the task in filtered tasks array
+                filteredTasks[index] = task
+            }
+        }
+        
         // Getting the index of the updated task
         if let index = tasks.firstIndex(where: { $0.id == task.id }) {
             // Updating the task in tasks array

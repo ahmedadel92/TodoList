@@ -23,6 +23,8 @@ class TaskCell: UITableViewCell {
             guard let task = task else { return }
             titleLabel.text = task.title
             completeTaskButton.setImage(UIImage(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle"), for: .normal)
+            completeTaskButton.tintColor = UIColor.systemBlue.withAlphaComponent(task.isCompleted ? 0.25 : 1)
+            titleLabel.textColor = UIColor.label.withAlphaComponent(task.isCompleted ? 0.25 : 1)
         }
     }
     
@@ -41,5 +43,7 @@ class TaskCell: UITableViewCell {
         completeTaskButton.tintColor = UIColor.systemBlue.withAlphaComponent(task!.isCompleted ? 0.25 : 1)
         // Change label's text color
         titleLabel.textColor = UIColor.label.withAlphaComponent(task!.isCompleted ? 0.25 : 1)
+        // Calling the delegate to update the task in data source
+        delegate?.updateTask(task: task!)
     }
 }
