@@ -144,6 +144,22 @@ extension TodoListController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let task = filteredTasks[indexPath.item]
+            filteredTasks.remove(at: indexPath.item)
+            
+            // Get the task index in tasks array in case it is different than
+            // the index in filtered array
+            if let index = tasks.firstIndex(where: { $0.id == task.id }) {
+                tasks.remove(at: index)
+            }
+            
+            // Delete the row
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     // Implementing task cell delegate function
     func updateTask(task: Task) {
         // Getting the index of the updated task
