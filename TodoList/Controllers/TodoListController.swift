@@ -13,7 +13,7 @@ class TodoListController: UITableViewController, TaskCellDelegate {
     
     var tasks: [Task] = [
         Task(title: "Take a shower"),
-        Task(title: "Make a cup of coffe"),
+        Task(title: "Make a cup of coffee"),
         Task(title: "Have a breakfast"),
         Task(title: "Read 3 pages from superfans book"),
         Task(title: "Clean the room")
